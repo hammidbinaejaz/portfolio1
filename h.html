@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hammid Bin Aejaz | AI & ML Enthusiast</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --bg:#0b0f1e;
+  --accent:#00ffff;
+  --accent2:#ff00ff;
+  --text:#e0e0e0;
+  --card-radius:15px;
+}
+
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Share Tech Mono', monospace;background:var(--bg);color:var(--text);overflow-x:hidden;scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+h2{color:var(--accent2);margin-bottom:2rem;text-align:center;}
+
+/* AI NETWORK CANVAS */
+#network{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:linear-gradient(135deg,#0b0f1e,#101426);}
+
+/* NAVIGATION */
+nav{position:fixed;top:0;width:100%;display:flex;justify-content:center;gap:30px;padding:15px 0;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);z-index:100;font-weight:600;}
+nav a{position:relative;transition:0.3s;font-weight:500;color:var(--text);}
+nav a:hover::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--accent);border-radius:2px;}
+nav a.active::after{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--accent2);border-radius:2px;}
+nav a.active{color:var(--accent);text-shadow:0 0 12px var(--accent),0 0 20px var(--accent2);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px;}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:3rem;color:var(--accent);margin-bottom:15px;text-shadow:0 0 15px var(--accent);}
+.hero p{font-size:1.3rem;color:#a0a0a0;margin-bottom:20px;}
+.hero .btn{padding:12px 25px;background:var(--accent2);border-radius:8px;color:#000;font-weight:600;transition:0.3s;}
+.hero .btn:hover{transform:scale(1.05);box-shadow:0 0 20px var(--accent2);}
+
+/* Floating Avatar */
+.avatar{width:180px;height:180px;border-radius:50%;border:3px solid var(--accent2);object-fit:cover;margin-bottom:20px;animation:float 4s ease-in-out infinite, glitch 2s infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+@keyframes glitch{0%,20%,40%,60%,80%,100%{transform:translateX(0);}10%,30%,50%,70%,90%{transform:translateX(-3px);}}
+
+/* SECTIONS */
+section{padding:100px 20px;opacity:0;transform:translateY(50px);transition:all 0.8s ease-out;}
+section.visible{opacity:1;transform:translateY(0);}
+
+/* 3D HOLOGRAPHIC CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.card{background:rgba(0,0,0,0.25);border:1px solid rgba(0,255,255,0.2);padding:25px;border-radius:var(--card-radius);text-align:center;box-shadow:0 0 25px rgba(0,255,255,0.2);transition:0.5s;transform-style: preserve-3d;perspective:1000px;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,rgba(0,255,255,0.1),rgba(255,0,255,0.1),rgba(0,255,255,0.1));transform:translateX(-100%) skewX(-20deg);transition:0.5s;}
+.card:hover::before{transform:translateX(100%) skewX(-20deg);}
+.card:hover{transform:translateY(-10px) rotateY(15deg) rotateX(5deg) scale(1.05);box-shadow:0 0 40px var(--accent);}
+.card h4{margin-bottom:10px;color:var(--accent);}
+.card p{color:#c0c0c0;font-size:0.9rem;}
+.skill-icon{font-size:2.5rem;margin-bottom:10px;color:var(--accent);transition:0.3s;}
+.card:hover .skill-icon{color:var(--accent2);transform:scale(1.2);}
+
+/* CAROUSELS */
+.carousel{display:flex;overflow-x:auto;gap:20px;padding-bottom:10px;scroll-behavior:smooth;}
+.carousel-card{min-width:140px;background:rgba(0,0,0,0.3);padding:15px;border-radius:12px;text-align:center;transition:0.3s;flex:0 0 auto;}
+.carousel-card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 0 15px var(--accent);}
+.carousel-card i{font-size:2rem;margin-bottom:8px;color:var(--accent);}
+
+/* CONTACT */
+.contact-grid{display:flex;gap:25px;flex-wrap:wrap;justify-content:center;margin-top:30px;}
+.contact-card{background:rgba(0,0,0,0.3);border:1px solid rgba(0,255,255,0.3);padding:20px;border-radius:var(--card-radius);text-align:center;transition:0.4s;box-shadow:0 0 10px rgba(0,255,255,0.2);}
+.contact-card i{font-size:2rem;margin-bottom:8px;color:var(--accent);}
+.contact-card:hover{box-shadow:0 0 25px var(--accent2);transform:translateY(-5px);}
+.contact-card p{font-weight:600;margin-top:5px;color:#a0a0a0;}
+.contact-card a{display:block;margin-top:5px;color:var(--accent2);font-weight:600;transition:0.3s;}
+.contact-card a:hover{color:var(--accent);text-shadow:0 0 8px var(--accent);}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem;color:#777;font-size:0.9rem;}
+
+/* MEDIA */
+@media(max-width:700px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}}
+</style>
+</head>
+<body>
+
+<canvas id="network"></canvas>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#books">Learning</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <img src="assets/profile.jpg" alt="Hammid Bin Aejaz" class="avatar">
+  <h1>Hammid Bin Aejaz</h1>
+  <p>Hi! I’m Hammid, an AI & ML enthusiast.</p>
+  <a href="assets/Resume.pdf" download class="btn">Download Resume</a>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<h2>Skills</h2>
+<div class="grid">
+  <div class="card"><h4>Python</h4><p>ML frameworks & data analysis</p></div>
+  <div class="card"><h4>Java</h4><p>OOP & enterprise programming</p></div>
+  <div class="card"><h4>C</h4><p>Algorithms & DSA foundations</p></div>
+  <div class="card"><h4>Machine Learning</h4><p>Predictions & classification</p></div>
+  <div class="card"><h4>Data Analytics</h4><p>Extract insights from data</p></div>
+  <div class="card"><h4>AI</h4><p>Neural networks & AI concepts</p></div>
+  <div class="card"><h4>EDA</h4><p>Data exploration & visualization</p></div>
+  <div class="card"><h4>DSA</h4><p>Strong algorithm knowledge</p></div>
+  <div class="card"><h4>Git/GitHub</h4><p>Version control & collaboration</p></div>
+  <div class="card"><h4>Deep Learning</h4><p>Neural networks implementation</p></div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+  <div class="card"><h4>Embedded AI for Websites</h4><p>Objective: Lightweight AI models for real-time website interaction.<br>Tech: JavaScript, Python<br>Result: Improved website interactivity and user engagement.</p></div>
+  <div class="card"><h4>Movie Recommendation System</h4><p>Objective: Recommend movies using collaborative filtering and content-based methods.<br>Tech: Python, Pandas, Scikit-learn<br>Result: Personalized recommendations with 90% user satisfaction.<br><a href="https://github.com/hamidlone08" target="_blank">GitHub</a></p></div>
+  <div class="card"><h4>IPL Win Predictor</h4><p>Objective: Predict IPL match winners using historical data.<br>Tech: Python, Pandas, Scikit-learn<br>Result: ~85% prediction accuracy.<br><a href="https://github.com/hamidlone08" target="_blank">GitHub</a></p></div>
+  <div class="card"><h4>4th Sem SVIT Notes</h4><p>Objective: Study notes and resources for 4th semester.<br>Tech: HTML, CSS, JS<br>Result: Easy access for students to all notes.<br><a href="#" target="_blank">View</a></p></div>
+  <div class="card"><h4>3rd Sem SVIT Notes</h4><p>Objective: Study notes and resources for 3rd semester.<br>Tech: HTML, CSS, JS<br>Result: Students can quickly access all notes.<br><a href="#" target="_blank">View</a></p></div>
+</div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+<h2>Certificates</h2>
+<div class="grid">
+  <div class="card"><h4>AI Fundamentals – IBM</h4><a href="#" download>Download</a></div>
+  <div class="card"><h4>Data Structures – Infosys</h4></div>
+  <div class="card"><h4>Advanced DSA – Infosys</h4></div>
+  <div class="card"><h4>Artificial Intelligence – Infosys</h4></div>
+  <div class="card"><h4>Querying SQL – Infosys</h4></div>
+</div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+<h2>Hobbies</h2>
+<div class="carousel">
+  <div class="carousel-card"><h4>Cooking</h4></div>
+  <div class="carousel-card"><h4>Trekking</h4></div>
+  <div class="carousel-card"><h4>Sudoku</h4></div>
+  <div class="carousel-card"><h4>Writing Poems</h4></div>
+</div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+<h2>Learning & Growth</h2>
+<div class="carousel">
+  <div class="carousel-card"><h4>Atomic Habits - James Clear</h4></div>
+  <div class="carousel-card"><h4>Do Your Work - Steven Pressfield</h4></div>
+  <div class="carousel-card"><h4>Why We Sleep - Matthew Walker</h4></div>
+  <div class="carousel-card"><h4>The Subtle Art of Not Giving a F*ck - Mark Manson</h4></div>
+  <div class="carousel-card"><h4>The Brain: The Story of You - David Eagleman</h4></div>
+  <div class="carousel-card"><h4>Pir-e-Kamil - Umera Ahmed</h4></div>
+  <div class="carousel-card"><h4>The Happiness Advantage - Shawn Achor</h4></div>
+  <div class="carousel-card"><h4>Grit - Angela Duckworth</h4></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Me</h2>
+<div class="contact-grid">
+  <div class="contact-card">
+    <i class="fas fa-envelope"></i>
+    <p>Email</p>
+    <a href="mailto:hamidbinaejaz@gmail.com">hamidbinaejaz@gmail.com</a>
+  </div>
+  <div class="contact-card">
+    <i class="fab fa-github"></i>
+    <p>GitHub</p>
+    <a href="https://github.com/hammidbinaejaz" target="_blank">github.com/hammidbinaejaz</a>
+  </div>
+  <div class="contact-card">
+    <i class="fab fa-linkedin"></i>
+    <p>LinkedIn</p>
+    <a href="https://linkedin.com/in/hamid-bin-aejaz" target="_blank">linkedin.com/in/hamid-bin-aejaz</a>
+  </div>
+</div>
+<p style="text-align:center;margin-top:40px;font-size:0.9rem;color:#777;">"The future belongs to those who understand that artificial intelligence is not about replacing humans, but augmenting human capabilities."</p>
+</section>
+
+<footer>&copy; 2025 Hammid Bin Aejaz | Designed by Hammid Bin Aejaz</footer>
+
+<script>
+// Scroll animations
+const sections=document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+  sections.forEach(sec=>{
+    const top=window.scrollY;
+    const offset=sec.offsetTop - window.innerHeight + 100;
+    if(top > offset){sec.classList.add('visible');}
+  });
+});
+
+// Active nav highlight
+const navLinks=document.querySelectorAll('nav a');
+window.addEventListener('scroll',()=>{
+  let scrollPos=window.scrollY + window.innerHeight/2;
+  sections.forEach(sec=>{
+    if(scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      document.querySelector(`nav a[href="#${sec.id}"]`).classList.add('active');
+    }
+  });
+});
+
+// Smooth scroll
+navLinks.forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.querySelector(link.getAttribute('href'));
+    target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
+// AI Network Particles + Symbols
+const canvas=document.getElementById('network');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const points=[],symbols=[];
+const symbolsArray=['Σ','λ','π','∑','∞','∇','Ai','ML'];
+const pointCount=120;
+let mouse={x:canvas.width/2,y:canvas.height/2};
+window.addEventListener('mousemove',(e)=>{mouse.x=e.clientX; mouse.y=e.clientY;});
+
+class Point{
+  constructor(){this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.vx=Math.random()*0.5-0.25; this.vy=Math.random()*0.5-0.25; this.alpha=Math.random()*0.5+0.5; this.alphaDir=Math.random()>0.5?0.01:-0.01;}
+  update(){this.x+=this.vx; this.y+=this.vy; if(this.x<0||this.x>canvas.width)this.vx*=-1; if(this.y<0||this.y>canvas.height)this.vy*=-1; this.alpha+=this.alphaDir; if(this.alpha>1||this.alpha<0.3)this.alphaDir*=-1;}
+  draw(){ctx.fillStyle=`rgba(0,255,255,${this.alpha})`;ctx.beginPath();ctx.arc(this.x,this.y,2,0,Math.PI*2);ctx.fill();}
+}
+
+class Symbol{
+  constructor(){this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.vx=Math.random()*0.2-0.1; this.vy=Math.random()*0.2-0.1; this.char=symbolsArray[Math.floor(Math.random()*symbolsArray.length)]; this.size=14+Math.random()*8; this.sizeDir=Math.random()>0.5?0.1:-0.1;}
+  update(){this.x+=this.vx; this.y+=this.vy; if(this.x<0)this.x=canvas.width;if(this.x>canvas.width)this.x=0;if(this.y<0)this.y=canvas.height;if(this.y>canvas.height)this.y=0; this.size+=this.sizeDir; if(this.size>20||this.size<12)this.sizeDir*=-1;}
+  draw(){ctx.fillStyle='rgba(0,255,255,0.7)';ctx.font=this.size+'px Share Tech Mono';ctx.fillText(this.char,this.x,this.y);}
+}
+
+for(let i=0;i<pointCount;i++) points.push(new Point());
+for(let i=0;i<50;i++) symbols.push(new Symbol());
+
+function connectPoints(){
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<points.length;j++){
+      let dx=points[i].x-points[j].x; let dy=points[i].y-points[j].y; let dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<140){ctx.strokeStyle=`rgba(0,255,255,${1-dist/140})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(points[i].x,points[i].y); ctx.lineTo(points[j].x,points[j].y); ctx.stroke();}
+    }
+    let dxm=points[i].x-mouse.x; let dym=points[i].y-mouse.y; let distm=Math.sqrt(dxm*dxm+dym*dym);
+    if(distm<150){ctx.strokeStyle=`rgba(255,0,255,${1-distm/150})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(points[i].x,points[i].y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke();}
+  }
+}
+
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height); points.forEach(p=>{p.update();p.draw();}); symbols.forEach(s=>{s.update();s.draw();}); connectPoints(); requestAnimationFrame(animate);}
+animate();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
+</script>
+
+</body>
+</html>
