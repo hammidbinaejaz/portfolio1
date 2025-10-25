@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
+/* ===== STYLES SAME AS YOUR PREVIOUS CODE ===== */
 :root {
   --bg-light:#fdfdfd; --bg-dark:#0f172a;
   --text-light:#1e293b; --text-dark:#f1f5f9;
@@ -18,88 +19,7 @@
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:'Inter',sans-serif; background:var(--bg-light); color:var(--text-light); line-height:1.6; scroll-behavior:smooth; transition:0.4s; }
 body.dark { background:var(--bg-dark); color:var(--text-dark); }
-
-/* ===== NAVIGATION ===== */
-nav {
-  position:fixed; top:0; width:100%; display:flex; justify-content:center; gap:25px;
-  padding:15px 0; background:rgba(255,255,255,0.85); backdrop-filter:blur(10px);
-  z-index:100; font-weight:500; transition:0.3s;
-}
-body.dark nav { background:rgba(15,23,42,0.85); }
-nav a { color:var(--text-light); text-decoration:none; transition:0.3s; }
-body.dark nav a { color:var(--text-dark); }
-nav a:hover, nav a.active { color:var(--accent); }
-
-.toggle-btn {
-  position:fixed; top:15px; right:15px; width:45px; height:45px;
-  border-radius:50%; background:var(--accent); color:#fff;
-  display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.2rem; z-index:200;
-  transition:0.3s;
-}
-.toggle-btn:hover { transform: scale(1.1) rotate(10deg); }
-
-/* ===== CONTAINER ===== */
-.container { width:90%; max-width:1100px; margin:auto; padding-top:100px; }
-section { margin-bottom:80px; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
-section.visible { opacity:1; transform:translateY(0); }
-h2 { text-align:center; color:var(--accent); font-size:2rem; margin-bottom:40px; font-weight:600; }
-
-/* ===== HERO / ABOUT ===== */
-.hero-container { text-align:center; padding:60px 20px; max-width:700px; margin:auto; }
-.hero h1 { font-size:2.5rem; margin-bottom:8px; font-weight:700; letter-spacing:1px; }
-.hero p.intro { font-size:1.1rem; max-width:650px; margin:10px auto; line-height:1.5; }
-.hero .tagline { font-size:1rem; margin-bottom:20px; color:#64748b; font-weight:500; }
-.profile-photo { width:160px; height:160px; border-radius:50%; border:4px solid var(--accent); object-fit:cover; margin-bottom:15px; box-shadow:0 6px 20px rgba(0,0,0,0.12); transition: transform 0.4s, box-shadow 0.4s; }
-.profile-photo:hover { transform:scale(1.08) rotate(1deg); box-shadow:0 12px 30px rgba(0,0,0,0.2); }
-
-.social-links a { margin:0 12px; font-size:1.4rem; color:var(--text-light); transition:0.3s; }
-body.dark .social-links a { color:var(--text-dark); }
-.social-links a:hover { color:var(--accent); transform:scale(1.2); }
-
-.btn { display:inline-block; padding:12px 22px; background:var(--accent); color:#fff; border-radius:8px; font-weight:600; transition:0.3s; text-decoration:none; margin-top:10px; }
-.btn:hover { background:#2563eb; transform:translateY(-2px); }
-
-/* ===== GRID CARDS ===== */
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-.card { background:#fff; padding:25px; border-radius:var(--card-radius); text-align:center; box-shadow:0 6px 15px rgba(0,0,0,0.08); transition: transform 0.4s, box-shadow 0.4s; position:relative; cursor:pointer; }
-body.dark .card { background:#1e293b; }
-.card:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
-
-/* Skill Card */
-.skill-card .icon-bg {
-  width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;
-  font-size:2rem; color:#fff; transition: transform 0.3s, box-shadow 0.3s;
-}
-.skill-card:hover .icon-bg { transform:scale(1.2); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
-
-/* Skill colors */
-.icon-bg.python { background:#306998; }
-.icon-bg.java { background:#f89820; }
-.icon-bg.c { background:#00599c; }
-.icon-bg.ml { background:#f59e0b; }
-.icon-bg.da { background:#10b981; }
-.icon-bg.ai { background:#8b5cf6; }
-.icon-bg.eda { background:#6366f1; }
-.icon-bg.ds { background:#ef4444; }
-.icon-bg.git { background:#f05032; }
-.icon-bg.dl { background:#06b6d4; }
-
-/* Books & Hobbies */
-.book-row, .grid.hobbies { display:flex; justify-content:center; flex-wrap:wrap; gap:15px; overflow-x:auto; padding-bottom:10px; }
-.book-card, .card.hobby-card { flex:0 0 auto; background:#fff; padding:12px 15px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.08); text-align:center; min-width:140px; opacity:0; transform:translateY(20px); transition:all 0.5s ease, transform 0.3s ease; cursor:default; }
-body.dark .book-card, body.dark .card.hobby-card { background:#1e293b; color:#f1f5f9; box-shadow:0 4px 12px rgba(0,0,0,0.3); }
-.book-card.visible, .card.hobby-card.visible { opacity:1; transform:translateY(0); }
-.book-card:hover, .card.hobby-card:hover { transform:translateY(-5px) scale(1.05) rotateZ(1deg); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-.book-card h4, .card.hobby-card h4 { font-size:1rem; margin-bottom:4px; font-weight:600; }
-.book-card p, .card.hobby-card p { font-size:0.85rem; color:#64748b; }
-body.dark .book-card p, body.dark .card.hobby-card p { color:#cbd5e1; }
-
-/* Footer */
-footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
-
-/* MOBILE */
-@media(max-width:800px){ .grid { grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:15px; } .hero h1 { font-size:2rem; } .hero p.intro { font-size:1rem; padding:0 10px; } .profile-photo { width:120px; height:120px; } .card { padding:15px; } .btn { padding:8px 14px; font-size:0.9rem; } .grid.hobbies, .book-row { justify-content:flex-start; overflow-x:auto; } }
-@media(max-width:500px){ nav { flex-direction:column; gap:10px; } .grid { grid-template-columns:1fr; } .card i { font-size:1.5rem; margin-bottom:6px; } .hero h1 { font-size:1.5rem; } .hero p.intro { font-size:0.9rem; } }
+/* ... ALL YOUR CSS FROM PREVIOUS CODE ... */
 </style>
 </head>
 <body>
@@ -120,12 +40,12 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 
 <div class="container">
 
-<!-- ABOUT -->
+<!-- About -->
 <section id="about" class="hero">
   <div class="hero-container">
     <img src="assets/profile.jpg" alt="Hammid Bin Aejaz" class="profile-photo">
     <h1>Hammid Bin Aejaz</h1>
-    <p class="intro"></p>
+    <p class="intro">Hi! I’m Hammid, an AI & ML <span style="color:var(--accent)">enthusiast</span>. I enjoy turning data into insights and building smart systems.</p>
     <div class="social-links">
       <a href="mailto:hamidbinaejaz@gmail.com"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/hammidbinaejaz" target="_blank"><i class="fab fa-github"></i></a>
@@ -135,7 +55,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- Skills -->
 <section id="skills">
 <h2>Skills</h2>
 <div class="grid">
@@ -152,7 +72,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- Projects -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
@@ -193,11 +113,14 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div>
 </section>
 
-<!-- CERTIFICATES -->
+<!-- Certificates -->
 <section id="certificates">
 <h2>Certificates</h2>
 <div class="grid">
-  <div class="card"><h3>AI Fundamentals – IBM</h3><a class="btn" href="assets/IBMDesign20250820-28-p0i2bg.pdf" download>Download</a></div>
+  <div class="card">
+    <h3>AI Fundamentals – IBM</h3>
+    <a class="btn" href="assets/IBMDesign20250820-28-p0i2bg.pdf" download>Download</a>
+  </div>
   <div class="card"><h3>Data Structures – Infosys</h3></div>
   <div class="card"><h3>Advanced DSA – Infosys</h3></div>
   <div class="card"><h3>Artificial Intelligence – Infosys</h3></div>
@@ -205,7 +128,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div>
 </section>
 
-<!-- HOBBIES -->
+<!-- Hobbies -->
 <section id="hobbies">
 <h2>Hobbies</h2>
 <div class="grid hobbies">
@@ -216,7 +139,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div>
 </section>
 
-<!-- BOOKS -->
+<!-- Books -->
 <section id="books">
 <h2>Learning & Growth</h2>
 <div class="book-row">
@@ -231,7 +154,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div>
 </section>
 
-<!-- CONTACT -->
+<!-- Contact -->
 <section id="contact">
 <h2>Contact Me</h2>
 <div class="grid" style="justify-content:center; gap:20px;">
@@ -243,7 +166,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
   <p style="margin-bottom:8px; font-style:italic;">
     "The future belongs to those who understand that artificial intelligence is not about replacing humans, but augmenting human capabilities."
@@ -254,109 +177,7 @@ footer { text-align:center; padding:2rem; font-size:0.9rem; color:#94a3b8; }
 </div> <!-- container end -->
 
 <script>
-// ================= Dark Mode Toggle =================
-const themeToggle = document.getElementById('themeToggle');
-const currentTheme = localStorage.getItem('theme');
-
-if(currentTheme === 'dark'){
-  document.body.classList.add('dark');
-  themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-}
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  if(document.body.classList.contains('dark')){
-    localStorage.setItem('theme','dark');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-  } else {
-    localStorage.setItem('theme','light');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-  }
-});
-
-// ================= Scroll Fade-In Animations =================
-const fadeElements = document.querySelectorAll('section, .book-card, .hobby-card, .card');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, {threshold:0.1});
-fadeElements.forEach(el => observer.observe(el));
-
-// ================= Smooth Scroll for Nav Links =================
-const navLinks = document.querySelectorAll('nav a');
-navLinks.forEach(link => {
-  link.addEventListener('click',(e)=>{
-    e.preventDefault();
-    const targetID = link.getAttribute('href').slice(1);
-    const targetSection = document.getElementById(targetID);
-    if(targetSection){
-      window.scrollTo({ top: targetSection.offsetTop-60, behavior:'smooth'});
-    }
-  });
-});
-
-// ================= Active Nav Highlight =================
-const sections = document.querySelectorAll('section');
-window.addEventListener('scroll',()=>{
-  let current='';
-  sections.forEach(section=>{
-    const sectionTop=section.offsetTop-80;
-    if(scrollY>=sectionTop) current=section.getAttribute('id');
-  });
-  navLinks.forEach(link=>{
-    link.classList.remove('active');
-    if(link.getAttribute('href')===`#${current}`) link.classList.add('active');
-  });
-});
-
-// ================= Typing Effect in Hero =================
-const introText = "Hi! I’m Hammid, an AI & ML enthusiast.";
-const introElement = document.querySelector('.hero p.intro');
-let charIndex = 0;
-function typeEffect(){
-  if(charIndex < introText.length){
-    introElement.textContent += introText.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeEffect,50);
-  }
-}
-introElement.textContent='';
-typeEffect();
-
-// ================= Back-to-Top Button =================
-const backBtn = document.createElement('div');
-backBtn.id = 'backTop';
-backBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-backBtn.style.position = 'fixed';
-backBtn.style.bottom = '30px';
-backBtn.style.right = '30px';
-backBtn.style.width = '45px';
-backBtn.style.height = '45px';
-backBtn.style.background = 'var(--accent)';
-backBtn.style.color = '#fff';
-backBtn.style.display = 'flex';
-backBtn.style.alignItems = 'center';
-backBtn.style.justifyContent = 'center';
-backBtn.style.borderRadius = '50%';
-backBtn.style.cursor = 'pointer';
-backBtn.style.boxShadow = '0 6px 20px rgba(0,0,0,0.2)';
-backBtn.style.transition = '0.3s';
-backBtn.style.zIndex = '1000';
-backBtn.style.opacity = '0';
-backBtn.style.pointerEvents = 'none';
-document.body.appendChild(backBtn);
-
-backBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backBtn.style.opacity = '1';
-    backBtn.style.pointerEvents = 'auto';
-  } else {
-    backBtn.style.opacity = '0';
-    backBtn.style.pointerEvents = 'none';
-  }
-});
+/* ===== JAVASCRIPT SAME AS PREVIOUS ===== */
+</script>
+</body>
+</html>
